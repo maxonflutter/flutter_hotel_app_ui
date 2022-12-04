@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../models/hotel_model.dart';
-import '../../../gen/assets.gen.dart';
-import '../../../gen/colors.gen.dart';
+import '../models/hotel_model.dart';
+import '../gen/assets.gen.dart';
+import '../gen/colors.gen.dart';
 import '../screens/hotel_screen.dart';
 import 'price_night_text_widget.dart';
 import 'rating_widget.dart';
-import '../../../utilities/app_text.dart';
+import '../utilities/app_text.dart';
 
 class HotelCard extends StatelessWidget {
   const HotelCard({

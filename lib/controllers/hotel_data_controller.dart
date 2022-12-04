@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../models/hotel_model.dart';
-import '../repository/hotel_repository.dart';
+import '../repositories/hotel_repository.dart';
 
 part 'hotel_data_controller.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../utilities/app_text.dart';
-import '../../../utilities/constants.dart';
+import '../utilities/app_text.dart';
+import '../utilities/constants.dart';
 
 class PricePerNightTextWidget extends StatelessWidget {
   final double price;

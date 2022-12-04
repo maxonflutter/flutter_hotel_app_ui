@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../gen/assets.gen.dart';
-import '../../../utilities/app_text.dart';
+import '../gen/assets.gen.dart';
+import '../utilities/app_text.dart';
 
 class FacilitiesSection extends StatelessWidget {
   const FacilitiesSection({Key? key}) : super(key: key);

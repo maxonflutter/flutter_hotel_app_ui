@@ -4,10 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../repository/hotel_repository.dart';
+import '../repositories/hotel_repository.dart';
 import '../utilities/constants.dart';
 import '../../utilities/custom_marker_map/custom_marker_map_widget.dart';
-import '../presenter/ui/widgets/map_marker_widget.dart';
+import '../widgets/map_marker_widget.dart';
 import 'hotel_data_controller.dart';
 
 part 'location_controller.g.dart';

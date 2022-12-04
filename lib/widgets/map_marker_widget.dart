@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../gen/colors.gen.dart';
-import '../../../utilities/app_text.dart';
+import '../gen/colors.gen.dart';
+import '../utilities/app_text.dart';
 
 class MapMarkerPrice extends StatelessWidget {
   final String price;

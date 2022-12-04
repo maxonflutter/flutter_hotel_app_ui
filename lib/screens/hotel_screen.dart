@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../gen/assets.gen.dart';
-import '../../../gen/colors.gen.dart';
-import '../../../models/hotel_model.dart';
-import '../../../utilities/app_text.dart';
+import '../gen/assets.gen.dart';
+import '../gen/colors.gen.dart';
+import '../models/hotel_model.dart';
+import '../utilities/app_text.dart';
 import '../widgets/app_icon_container_widget.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/facilities_section_widget.dart';

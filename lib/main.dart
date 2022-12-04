@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'gen/colors.gen.dart';
 import 'gen/fonts.gen.dart';
-import 'presenter/ui/screens/dashboard.dart';
+import 'screens/dashboard.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
