@@ -10,7 +10,7 @@ class CustomButton extends StatelessWidget {
   }) : super(key: key);
 
   final String buttonText;
-  final VoidCallback? onPressed;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {

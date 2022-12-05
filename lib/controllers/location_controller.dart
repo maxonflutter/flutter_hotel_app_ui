@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../repositories/hotel_repository.dart';
 import '../utilities/constants.dart';
-import '../../utilities/custom_marker_map/custom_marker_map_widget.dart';
+import '../widgets/custom_marker_generator.dart';
 import '../widgets/map_marker_widget.dart';
 import 'hotel_data_controller.dart';
 
@@ -42,15 +42,15 @@ Future<LocationController> locationController(LocationControllerRef ref) async {
 }
 
 class LocationController {
-  // default to YOGYAKARTA
-  final defaultLocation = const LatLng(-7.795529617707741, 110.36872726427349);
   final globalMarkerKey = GlobalKey();
+  final defaultLocation = const LatLng(-7.795529617707741, 110.36872726427349);
   final Completer<GoogleMapController> _mapController = Completer();
-  LatLng _currentLocation = const LatLng(0, 0);
-  final Set<MarkerWidget> _markers = {};
 
-  LatLng get currentLocation => _currentLocation;
+  final Set<MarkerWidget> _markers = {};
   Set<MarkerWidget> get markers => _markers;
+
+  LatLng _currentLocation = const LatLng(0, 0);
+  LatLng get currentLocation => _currentLocation;
 
   void onMapCreated(GoogleMapController controller) {
     _mapController.complete(controller);

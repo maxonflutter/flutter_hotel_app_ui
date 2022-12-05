@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../controllers/hotel_data_controller.dart';
 import '../controllers/location_controller.dart';
-import '../utilities/custom_marker_map/custom_marker_map_widget.dart';
+import '../widgets/custom_map.dart';
 import '../widgets/hotel_card.dart';
 
 class MapScreen extends HookConsumerWidget {
@@ -18,14 +18,12 @@ class MapScreen extends HookConsumerWidget {
       body: locationController.when(
         data: (controller) => Stack(
           children: [
-            CustomMarkerMap(
-              onMapCreated: controller.onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: controller.defaultLocation,
-                zoom: 12.0,
-              ),
-              markerWidgets: controller.markers,
-            ),
+            CustomMap(
+                initialCameraPosition: CameraPosition(
+                  target: controller.defaultLocation,
+                  zoom: 12.0,
+                ),
+                markerWidgets: controller.markers.toList()),
             hotelController.maybeWhen(
               data: (hotel) => Align(
                 alignment: Alignment.bottomCenter,
