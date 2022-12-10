@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'hotel_data_controller.dart';
+part of 'selected_hotel_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -29,21 +29,19 @@ class _SystemHash {
   }
 }
 
-String $HotelDataControllerHash() =>
-    r'71f44fee87ef65ba990724931fe189d60ed51e2d';
+String $SelectedHotelHash() => r'fc401db91a098788391c46e32ac6a744dbc48947';
 
-/// See also [HotelDataController].
-final hotelDataControllerProvider =
-    AutoDisposeAsyncNotifierProvider<HotelDataController, Hotel>(
-  HotelDataController.new,
-  name: r'hotelDataControllerProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : $HotelDataControllerHash,
+/// See also [SelectedHotel].
+final selectedHotelProvider =
+    AutoDisposeAsyncNotifierProvider<SelectedHotel, HotelModel>(
+  SelectedHotel.new,
+  name: r'selectedHotelProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : $SelectedHotelHash,
 );
-typedef HotelDataControllerRef = AutoDisposeAsyncNotifierProviderRef<Hotel>;
+typedef SelectedHotelRef = AutoDisposeAsyncNotifierProviderRef<HotelModel>;
 
-abstract class _$HotelDataController extends AutoDisposeAsyncNotifier<Hotel> {
+abstract class _$SelectedHotel extends AutoDisposeAsyncNotifier<HotelModel> {
   @override
-  FutureOr<Hotel> build();
+  FutureOr<HotelModel> build();
 }

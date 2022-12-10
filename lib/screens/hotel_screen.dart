@@ -20,7 +20,7 @@ class HotelDetailScreen extends StatelessWidget {
     required this.hotel,
   }) : super(key: key);
 
-  final Hotel hotel;
+  final HotelModel hotel;
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +144,7 @@ class _HotelTitleSection extends StatelessWidget {
     required this.hotel,
   }) : super(key: key);
 
-  final Hotel hotel;
+  final HotelModel hotel;
 
   @override
   Widget build(BuildContext context) {

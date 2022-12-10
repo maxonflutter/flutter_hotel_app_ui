@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../models/hotel_model.dart';
 import '../gen/assets.gen.dart';
 import '../gen/colors.gen.dart';
-import '../repositories/hotel_repository.dart';
+import '../models/hotel_model.dart';
+import '../providers/all_hotels_provider.dart';
 import '../utilities/constants.dart';
-import '../widgets/custom_button.dart';
 import '../widgets/app_icon_container_widget.dart';
-import '../widgets/hotel_card.dart';
+import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
+import '../widgets/hotel_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,25 +18,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        Container(
-          height: double.infinity,
-          margin: EdgeInsets.only(top: size.height * 0.25),
-          color: Colors.white,
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      body: SafeArea(
+        bottom: false,
+        child: Stack(
+          children: [
+            Container(
+              height: double.infinity,
+              margin: EdgeInsets.only(top: size.height * 0.25),
+              color: Colors.white,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    _HeaderSection(),
+                    _SearchCard(),
+                    SizedBox(height: 20),
+                    _NearbyHotelSection(),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: const [
-              _HeaderSection(),
-              _SearchCard(),
-              SizedBox(height: 20),
-              Flexible(child: _NearbyHotelSection()),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
@@ -142,7 +150,7 @@ class _NearbyHotelSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final hotelRepo = ref.watch(hotelRepositoryProvider);
+    final hotels = ref.watch(allHotelsProvider);
     return Column(
       children: [
         Row(
@@ -166,28 +174,21 @@ class _NearbyHotelSection extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: 4),
-        Flexible(
-          child: FutureBuilder<List<Hotel>>(
-            future: hotelRepo.getHotelList(),
-            builder: (context, snapshot) {
-              final listHotel = snapshot.data;
-              if (listHotel == null) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              return ListView.builder(
-                padding: const EdgeInsets.all(0),
-                shrinkWrap: true,
-                itemCount: listHotel.length,
-                itemBuilder: (context, index) {
-                  final hotel = listHotel[index];
-                  return HotelCard(hotel: hotel);
-                },
-              );
-            },
-          ),
-        )
+        hotels.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (err, stack) => Text('Error: $err'),
+          data: (hotels) {
+            return ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: hotels.length,
+              itemBuilder: (BuildContext context, int index) {
+                HotelModel hotel = hotels[index];
+                return HotelCard(hotel: hotel);
+              },
+            );
+          },
+        ),
       ],
     );
   }

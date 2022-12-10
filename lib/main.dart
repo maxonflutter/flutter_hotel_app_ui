@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'gen/colors.gen.dart';
 import 'gen/fonts.gen.dart';
-import 'screens/dashboard.dart';
+import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ class HotelApp extends StatelessWidget {
         fontFamily: FontFamily.workSans,
         primarySwatch: ColorName.primarySwatch,
       ),
-      home: const Dashboard(),
+      home: const HomeScreen(),
     );
   }
 }
