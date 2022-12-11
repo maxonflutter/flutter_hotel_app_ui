@@ -10,7 +10,7 @@ import '../gen/colors.gen.dart';
 import '../models/hotel_model.dart';
 import '../utilities/app_text.dart';
 import '../utilities/constants.dart';
-import '../widgets/app_icon_container_widget.dart';
+import '../widgets/custom_icon_container.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_rating.dart';
 
@@ -80,11 +80,13 @@ class HotelDetailScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppIconContainer(
-                      Assets.icon.chevronDown.svg(height: 25),
+                    CustomIconContainer(
+                      icon: Assets.icon.chevronDown.svg(height: 25),
                       onTap: () => Navigator.of(context).pop(),
                     ),
-                    AppIconContainer(Assets.icon.wishlist.svg(height: 25)),
+                    CustomIconContainer(
+                      icon: Assets.icon.wishlist.svg(height: 25),
+                    ),
                   ],
                 ),
               ),
@@ -351,13 +353,11 @@ class _ReserveBar extends StatelessWidget {
               ),
             ],
           ),
-          Flexible(
-            child: SizedBox(
-              width: 150,
-              child: CustomButton(
-                buttonText: 'Reserve',
-                onPressed: () {},
-              ),
+          SizedBox(
+            width: 150,
+            child: CustomButton(
+              buttonText: 'Reserve',
+              onPressed: () {},
             ),
           ),
         ],

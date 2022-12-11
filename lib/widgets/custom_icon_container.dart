@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AppIconContainer extends StatelessWidget {
+class CustomIconContainer extends StatelessWidget {
+  const CustomIconContainer({
+    Key? key,
+    required this.icon,
+    this.onTap,
+    this.containerSize = 50,
+  }) : super(key: key);
+
   final Widget icon;
+  final Function()? onTap;
   final double containerSize;
-  final VoidCallback? onTap;
-  const AppIconContainer(this.icon,
-      {this.onTap, this.containerSize = 50, Key? key})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +22,9 @@ class AppIconContainer extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Center(
-          child: icon,
-        ),
+        child: Center(child: icon),
       ),
     );
   }

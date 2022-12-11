@@ -7,7 +7,7 @@ import '../gen/colors.gen.dart';
 import '../models/hotel_model.dart';
 import '../providers/all_hotels_provider.dart';
 import '../utilities/constants.dart';
-import '../widgets/app_icon_container_widget.dart';
+import '../widgets/custom_icon_container.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_nav_bar.dart';
 import '../widgets/custom_text_field.dart';
@@ -66,8 +66,8 @@ class _HeaderSection extends StatelessWidget {
               radius: 25,
               backgroundImage: Assets.image.photo.provider(),
             ),
-            AppIconContainer(
-              Assets.icon.notification.svg(height: 25),
+            CustomIconContainer(
+              icon: Assets.icon.notification.svg(height: 25),
             ),
           ],
         ),
