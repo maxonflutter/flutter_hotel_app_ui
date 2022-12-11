@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_app_ui/utilities/constants.dart';
 import '../models/hotel_model.dart';
 import '../gen/assets.gen.dart';
 import '../gen/colors.gen.dart';
 import '../screens/hotel_screen.dart';
-import 'price_night_text_widget.dart';
-import 'rating_widget.dart';
+import 'custom_rating.dart';
 import '../utilities/app_text.dart';
 
 class HotelCard extends StatelessWidget {
@@ -76,9 +76,16 @@ class HotelCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: RatingWidget(ratingScore: hotel.ratingScore),
+                      child: CustomRating(ratingScore: hotel.ratingScore),
                     ),
-                    PricePerNightTextWidget(hotel.price),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          AppTextSpan.large(hotel.price.moneyFormat()),
+                          AppTextSpan.medium(' /night'),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -89,3 +96,21 @@ class HotelCard extends StatelessWidget {
     );
   }
 }
+
+
+// class PricePerNightTextWidget extends StatelessWidget {
+//   final double price;
+//   const PricePerNightTextWidget(this.price, {Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return RichText(
+//       text: TextSpan(
+//         children: [
+//           AppTextSpan.large(price.moneyFormat()),
+//           AppTextSpan.medium(' /night'),
+//         ],
+//       ),
+//     );
+//   }
+// }

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import '../gen/colors.gen.dart';
 import '../gen/fonts.gen.dart';
 
@@ -20,18 +21,21 @@ class AppText extends Text {
       this.height,
       this.letterSpacing,
       this.fontSize = 12})
-      : super(data,
-            key: key,
-            textAlign: textAlign,
-            maxLines: maxLine,
-            style: TextStyle(
-                fontFamily: FontFamily.workSans,
-                fontSize: fontSize,
-                color: color,
-                height: height,
-                fontWeight: fontWeight,
-                overflow: textOverflow,
-                letterSpacing: letterSpacing));
+      : super(
+          data,
+          key: key,
+          textAlign: textAlign,
+          maxLines: maxLine,
+          style: TextStyle(
+            fontFamily: FontFamily.workSans,
+            fontSize: fontSize,
+            color: color,
+            height: height,
+            fontWeight: fontWeight,
+            overflow: textOverflow,
+            letterSpacing: letterSpacing,
+          ),
+        );
 
   AppText.medium(
     String data, {
@@ -45,19 +49,22 @@ class AppText extends Text {
     this.letterSpacing,
     this.fontSize = 14,
     TextDecoration textDecoration = TextDecoration.none,
-  }) : super(data,
-            key: key,
-            textAlign: textAlign,
-            maxLines: maxLine,
-            style: TextStyle(
-                fontFamily: FontFamily.workSans,
-                fontSize: fontSize,
-                color: color,
-                height: height,
-                fontWeight: fontWeight,
-                overflow: textOverflow,
-                decoration: textDecoration,
-                letterSpacing: letterSpacing));
+  }) : super(
+          data,
+          key: key,
+          textAlign: textAlign,
+          maxLines: maxLine,
+          style: TextStyle(
+            fontFamily: FontFamily.workSans,
+            fontSize: fontSize,
+            color: color,
+            height: height,
+            fontWeight: fontWeight,
+            overflow: textOverflow,
+            decoration: textDecoration,
+            letterSpacing: letterSpacing,
+          ),
+        );
 
   AppText.large(String data,
       {Key? key,
@@ -69,18 +76,21 @@ class AppText extends Text {
       this.height,
       this.letterSpacing,
       this.fontSize = 24})
-      : super(data,
-            key: key,
-            textAlign: textAlign,
-            maxLines: maxLine,
-            style: TextStyle(
-                fontFamily: FontFamily.workSans,
-                fontSize: fontSize,
-                color: color,
-                height: height,
-                fontWeight: fontWeight,
-                overflow: textOverflow,
-                letterSpacing: letterSpacing));
+      : super(
+          data,
+          key: key,
+          textAlign: textAlign,
+          maxLines: maxLine,
+          style: TextStyle(
+            fontFamily: FontFamily.workSans,
+            fontSize: fontSize,
+            color: color,
+            height: height,
+            fontWeight: fontWeight,
+            overflow: textOverflow,
+            letterSpacing: letterSpacing,
+          ),
+        );
 }
 
 class AppTextSpan extends TextSpan {
@@ -100,15 +110,17 @@ class AppTextSpan extends TextSpan {
       this.letterSpacing,
       GestureRecognizer? recognizer})
       : super(
-            text: data,
-            recognizer: recognizer,
-            style: TextStyle(
-                fontFamily: FontFamily.workSans,
-                fontSize: fontSize,
-                color: color,
-                height: height,
-                letterSpacing: letterSpacing,
-                fontWeight: fontWeight));
+          text: data,
+          recognizer: recognizer,
+          style: TextStyle(
+            fontFamily: FontFamily.workSans,
+            fontSize: fontSize,
+            color: color,
+            height: height,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+          ),
+        );
 
   AppTextSpan.medium(String data,
       {this.color = ColorName.primaryColor,
@@ -120,16 +132,18 @@ class AppTextSpan extends TextSpan {
       TextDecoration textDecoration = TextDecoration.none,
       GestureRecognizer? recognizer})
       : super(
-            text: data,
-            recognizer: recognizer,
-            style: TextStyle(
-                fontFamily: FontFamily.workSans,
-                fontSize: fontSize,
-                color: color,
-                height: height,
-                letterSpacing: letterSpacing,
-                decoration: textDecoration,
-                fontWeight: fontWeight));
+          text: data,
+          recognizer: recognizer,
+          style: TextStyle(
+            fontFamily: FontFamily.workSans,
+            fontSize: fontSize,
+            color: color,
+            height: height,
+            letterSpacing: letterSpacing,
+            decoration: textDecoration,
+            fontWeight: fontWeight,
+          ),
+        );
 
   AppTextSpan.small(String data,
       {this.color = ColorName.primaryColor,
@@ -140,13 +154,15 @@ class AppTextSpan extends TextSpan {
       this.letterSpacing = 1,
       GestureRecognizer? recognizer})
       : super(
-            text: data,
-            recognizer: recognizer,
-            style: TextStyle(
-                fontFamily: FontFamily.workSans,
-                fontSize: fontSize,
-                color: color,
-                height: height,
-                letterSpacing: letterSpacing,
-                fontWeight: fontWeight));
+          text: data,
+          recognizer: recognizer,
+          style: TextStyle(
+            fontFamily: FontFamily.workSans,
+            fontSize: fontSize,
+            color: color,
+            height: height,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+          ),
+        );
 }

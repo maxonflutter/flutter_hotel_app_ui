@@ -7,7 +7,7 @@ class HotelModel {
   final String address;
   final String description;
   final String thumbnailPath;
-  final List<String> gallery;
+  final List<String> imagePaths;
   final int totalReview;
   final double ratingScore;
   final double price;
@@ -20,7 +20,7 @@ class HotelModel {
     required this.address,
     required this.description,
     required this.thumbnailPath,
-    required this.gallery,
+    required this.imagePaths,
     required this.price,
     required this.coordinate,
     this.ratingScore = 0,
@@ -39,7 +39,7 @@ class HotelModel {
       ratingScore: 4.25,
       coordinate: LatLng(-7.8712168283326625, 110.353484068852),
       price: 458,
-      gallery: [
+      imagePaths: [
         'assets/image/gallery1.png',
         'assets/image/gallery2.png',
         'assets/image/gallery3.png',
@@ -57,7 +57,7 @@ class HotelModel {
       ratingScore: 3.6,
       coordinate: LatLng(-7.8188302371260265, 110.36928495262913),
       price: 338,
-      gallery: [
+      imagePaths: [
         'assets/image/gallery1.png',
         'assets/image/gallery2.png',
         'assets/image/gallery3.png',
@@ -75,7 +75,7 @@ class HotelModel {
       ratingScore: 2.6,
       coordinate: LatLng(-7.842320836894338, 110.33722565674677),
       price: 698,
-      gallery: [
+      imagePaths: [
         'assets/image/gallery1.png',
         'assets/image/gallery2.png',
         'assets/image/gallery3.png',
@@ -93,7 +93,7 @@ class HotelModel {
       ratingScore: 10,
       coordinate: LatLng(-7.8147871933139434, 110.36921653947174),
       price: 123,
-      gallery: [
+      imagePaths: [
         'assets/image/gallery1.png',
         'assets/image/gallery2.png',
         'assets/image/gallery3.png',

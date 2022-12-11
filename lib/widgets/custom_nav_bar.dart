@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_app_ui/screens/home_screen.dart';
-import 'package:flutter_hotel_app_ui/screens/map_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../gen/assets.gen.dart';
 import '../gen/colors.gen.dart';
 import '../gen/fonts.gen.dart';
+import '../screens/home_screen.dart';
+import '../screens/map_screen.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
