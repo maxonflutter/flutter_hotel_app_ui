@@ -3,8 +3,12 @@ import '../gen/colors.gen.dart';
 import '../utilities/app_text.dart';
 
 class MapMarkerPrice extends StatelessWidget {
+  const MapMarkerPrice({
+    Key? key,
+    required this.price,
+  }) : super(key: key);
+
   final String price;
-  const MapMarkerPrice(this.price, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

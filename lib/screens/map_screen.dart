@@ -1,49 +1,65 @@
-// import 'package:flutter/material.dart';
-// import 'package:google_maps_flutter/google_maps_flutter.dart';
-// import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hotel_app_ui/providers/selected_hotel_provider.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-// import '../controllers/hotel_data_controller.dart';
-// import '../controllers/location_controller.dart';
-// import '../widgets/custom_map.dart';
-// import '../widgets/hotel_card.dart';
+import '../providers/map_location_provider.dart';
+import '../providers/map_markers_provider.dart';
+import '../widgets/custom_map.dart';
+import '../widgets/custom_nav_bar.dart';
+import '../widgets/hotel_card.dart';
 
-// class MapScreen extends HookConsumerWidget {
-//   const MapScreen({Key? key}) : super(key: key);
+class MapScreen extends ConsumerWidget {
+  const MapScreen({Key? key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     final locationController = ref.watch(locationControllerProvider);
-//     final hotelController = ref.watch(hotelDataControllerProvider);
-//     return Scaffold(
-//       body: locationController.when(
-//         data: (controller) => Stack(
-//           children: [
-//             CustomMap(
-//               markerWidgets: controller.markers.toList(),
-//               initialCameraPosition: CameraPosition(
-//                 target: controller.defaultLocation,
-//                 zoom: 12.0,
-//               ),
-//             ),
-//             hotelController.maybeWhen(
-//               data: (hotel) => Align(
-//                 alignment: Alignment.bottomCenter,
-//                 child: Padding(
-//                   padding: const EdgeInsets.all(16),
-//                   child: HotelCard(
-//                     hotel: hotel,
-//                   ),
-//                 ),
-//               ),
-//               orElse: () => const SizedBox.shrink(),
-//             )
-//           ],
-//         ),
-//         error: (e, s) => const SizedBox.shrink(),
-//         loading: () => const Center(
-//           child: CircularProgressIndicator(),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mapLocation = ref.watch(mapLocationProvider);
+    final mapMarkers = ref.watch(mapMarkersProvider);
+    final selectedHotel = ref.watch(selectedHotelProvider);
+
+    return Scaffold(
+      bottomNavigationBar: CustomNavBar(index: 1),
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        leading: BackButton(),
+      ),
+      extendBodyBehindAppBar: true,
+      body: mapMarkers.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Text('Error: $err'),
+        data: (mapMarkers) {
+          return Stack(
+            children: [
+              CustomMap(
+                initialCameraPosition: CameraPosition(
+                  target: mapLocation,
+                  zoom: 12.5,
+                ),
+                markerWidgets: mapMarkers.toList(),
+                // onCameraMove: (position) {
+                //   ref
+                //       .read(mapLocationProvider.notifier)
+                //       .setMapLocation(position.target);
+                // },
+              ),
+              selectedHotel.maybeWhen(
+                data: (hotel) {
+                  return Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: HotelCard(hotel: hotel),
+                    ),
+                  );
+                },
+                orElse: () => const SizedBox.shrink(),
+              )
+            ],
+          );
+        },
+      ),
+    );
+  }
+}

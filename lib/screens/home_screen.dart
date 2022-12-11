@@ -9,6 +9,7 @@ import '../providers/all_hotels_provider.dart';
 import '../utilities/constants.dart';
 import '../widgets/app_icon_container_widget.dart';
 import '../widgets/custom_button.dart';
+import '../widgets/custom_nav_bar.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/hotel_card.dart';
 
@@ -20,6 +21,7 @@ class HomeScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.blue,
+      bottomNavigationBar: CustomNavBar(index: 0),
       body: SafeArea(
         bottom: false,
         child: Stack(
