@@ -224,7 +224,7 @@ packages:
     source: hosted
     version: "5.1.0+1"
   flutter_hooks:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_hooks
       url: "https://pub.dartlang.org"

@@ -4,7 +4,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../repositories/hotel_repository.dart';
-import '../utilities/constants.dart';
 import '../widgets/custom_marker_generator.dart';
 import '../widgets/map_marker_widget.dart';
 import 'selected_hotel_provider.dart';
@@ -29,7 +28,7 @@ class MapMarkers extends _$MapMarkers {
                     .setSelectedHotel(hotel.id);
               },
             ),
-            widget: MapMarkerPrice(price: hotel.price.toUSD()),
+            widget: MapMarkerPrice(price: '\$${hotel.price}'),
           ),
         )
         .toSet();

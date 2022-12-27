@@ -8,10 +8,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../gen/assets.gen.dart';
 import '../gen/colors.gen.dart';
 import '../models/hotel_model.dart';
-import '../utilities/app_text.dart';
-import '../utilities/constants.dart';
-import '../widgets/custom_icon_container.dart';
+import '../widgets/app_text.dart';
 import '../widgets/custom_button.dart';
+import '../widgets/custom_icon_container.dart';
 import '../widgets/custom_rating.dart';
 
 class HotelDetailScreen extends StatelessWidget {
@@ -80,11 +79,11 @@ class HotelDetailScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomIconContainer(
+                    CustomIconButton(
                       icon: Assets.icon.chevronDown.svg(height: 25),
-                      onTap: () => Navigator.of(context).pop(),
+                      onPressed: () => Navigator.of(context).pop(),
                     ),
-                    CustomIconContainer(
+                    CustomIconButton(
                       icon: Assets.icon.wishlist.svg(height: 25),
                     ),
                   ],
@@ -346,7 +345,7 @@ class _ReserveBar extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    AppTextSpan.large(price.moneyFormat()),
+                    AppTextSpan.large('\$$price'),
                     AppTextSpan.medium(' /night'),
                   ],
                 ),

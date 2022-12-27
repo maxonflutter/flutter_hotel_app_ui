@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_app_ui/utilities/constants.dart';
-import '../models/hotel_model.dart';
+
 import '../gen/assets.gen.dart';
 import '../gen/colors.gen.dart';
+import '../models/hotel_model.dart';
 import '../screens/hotel_screen.dart';
+import 'app_text.dart';
 import 'custom_rating.dart';
-import '../utilities/app_text.dart';
 
 class HotelCard extends StatelessWidget {
   const HotelCard({
@@ -81,7 +81,7 @@ class HotelCard extends StatelessWidget {
                     RichText(
                       text: TextSpan(
                         children: [
-                          AppTextSpan.large(hotel.price.moneyFormat()),
+                          AppTextSpan.large('\$${hotel.price}'),
                           AppTextSpan.medium(' /night'),
                         ],
                       ),
@@ -96,21 +96,3 @@ class HotelCard extends StatelessWidget {
     );
   }
 }
-
-
-// class PricePerNightTextWidget extends StatelessWidget {
-//   final double price;
-//   const PricePerNightTextWidget(this.price, {Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return RichText(
-//       text: TextSpan(
-//         children: [
-//           AppTextSpan.large(price.moneyFormat()),
-//           AppTextSpan.medium(' /night'),
-//         ],
-//       ),
-//     );
-//   }
-// }

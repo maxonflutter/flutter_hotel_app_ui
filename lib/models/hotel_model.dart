@@ -31,7 +31,7 @@ class HotelModel {
     HotelModel(
       id: '1',
       thumbnailPath: 'assets/image/thumbnail1.png',
-      title: 'D`Omah HotelModel Yogya',
+      title: 'D`Omah Hotel Yogya',
       location: 'Bantul Regency, Yogyakarta',
       address: 'Jl. Parangtritis km 8.5, Yogyakarta 55186',
       description:
@@ -49,7 +49,7 @@ class HotelModel {
     HotelModel(
       id: '2',
       thumbnailPath: 'assets/image/thumbnail2.png',
-      title: 'Greenhost Boutique HotelModel',
+      title: 'Greenhost Boutique Hotel',
       location: 'Bantul Regency, Yogyakarta',
       address: 'Jl. Parangtritis km 8.5, Yogyakarta 55186',
       description:
@@ -85,7 +85,7 @@ class HotelModel {
     HotelModel(
       id: '4',
       thumbnailPath: 'assets/image/thumbnail2.png',
-      title: 'Alana HotelModel',
+      title: 'Alana Hotel',
       location: 'Bantul Regency, Yogyakarta',
       address: 'Jl. Parangtritis km 8.5, Yogyakarta 55186',
       description:
